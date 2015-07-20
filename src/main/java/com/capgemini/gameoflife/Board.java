@@ -59,7 +59,7 @@ public class Board {
 	}
 
 	public void display(Figure figure) {
-		int width = figure.getFigure()[0].length;
+		int rowLength = figure.getFigure()[0].length;
 		int i = 0;
 		System.out.println();
 		for (Cell cell : cells) {
@@ -70,7 +70,7 @@ public class Board {
 			}
 
 			i++;
-			if (i == width) {
+			if (i == rowLength) {
 				System.out.println();
 				i = 0;
 			}

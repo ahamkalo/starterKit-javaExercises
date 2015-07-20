@@ -27,6 +27,8 @@ public class TaxiSystem {
 		warszawa.registerNewClient(Magda);
 		wroclaw.registerNewClient(Magda);
 		wroclaw.registerNewClient(Marek);
-		Thread.sleep(5000);
+		Thread.sleep(9000);
+		wroclaw.removeClient(Marek);
+		wroclaw.removeClient(Marek);
 	}
 }

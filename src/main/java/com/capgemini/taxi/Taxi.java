@@ -18,10 +18,9 @@ public class Taxi extends Thread {
 	public void run() {
 		int i = 0;
 		while (true) {
-			 //System.out.println(" xPosition: "+ position.getXPosition() + " yPosition: "+ position.getYPosition() + " id: " + id);
 			i++;
 			try {
-				Thread.sleep(100);
+				Thread.sleep(1000);
 				setPosition(position.getXPosition() + rand.nextInt(21) - 10,
 						position.getYPosition() + rand.nextInt(21) - 10);
 				if (i == 10) {

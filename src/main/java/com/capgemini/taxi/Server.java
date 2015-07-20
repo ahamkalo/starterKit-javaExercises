@@ -35,7 +35,7 @@ abstract class Server extends Thread {
 
 					notify(observer, nearestTaxis);
 				}
-				Thread.sleep(1000);
+				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				System.out.println(e.getMessage());
 			}
@@ -47,8 +47,10 @@ abstract class Server extends Thread {
 	}
 
 	public void removeClient(Observer observer) {
-		observers.remove(observers.indexOf(observer));
-		observer.setCity("none");
+		if(observers.contains(observer)){
+			observers.remove(observers.indexOf(observer));
+			observer.setCity("none");
+		}
 	}
 
 	private int distanceToClient(Taxi taxi, Observer observer) {
