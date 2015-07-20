@@ -20,19 +20,6 @@ public class Hand implements Comparable<Hand> {
 		setRank();
 	}
 
-	private TreeMap<Values, Integer> deepMapCopy(TreeMap<Values, Integer> original) {
-
-		TreeMap<Values, Integer> copy = new TreeMap<Values, Integer>();
-		for (Entry<Values, Integer> entry : original.entrySet()) {
-			copy.put(entry.getKey(), entry.getValue());
-		}
-		return copy;
-	}
-
-	public TreeMap<Values, Integer> getMap() {
-		return map;
-	}
-
 	public int compareTo(Hand otherHand) {
 		int comparisonResult = rank.compareTo(otherHand.rank);
 		if (isNotEqualZero(comparisonResult)) {
@@ -55,14 +42,6 @@ public class Hand implements Comparable<Hand> {
 			comparisonResult = compare(otherHand);
 		}
 		return comparisonResult;
-	}
-
-	public Rank getRank() {
-		return rank;
-	}
-
-	public List<Card> getCardsFromHand() {
-		return cardsInHand;
 	}
 
 	private void addCardsToHand(String cardsString) {
@@ -123,6 +102,15 @@ public class Hand implements Comparable<Hand> {
 
 	private boolean isNotEqualZero(int result) {
 		return result != 0;
+	}
+	
+	private TreeMap<Values, Integer> deepMapCopy(TreeMap<Values, Integer> original) {
+
+		TreeMap<Values, Integer> copy = new TreeMap<Values, Integer>();
+		for (Entry<Values, Integer> entry : original.entrySet()) {
+			copy.put(entry.getKey(), entry.getValue());
+		}
+		return copy;
 	}
 
 	private int compare(Hand otherHand) {
@@ -238,5 +226,17 @@ public class Hand implements Comparable<Hand> {
 			}
 		}
 		return null;
+	}
+	
+	public TreeMap<Values, Integer> getMap() {
+		return map;
+	}
+	
+	public Rank getRank() {
+		return rank;
+	}
+
+	public List<Card> getCardsFromHand() {
+		return cardsInHand;
 	}
 }
