@@ -22,7 +22,7 @@ public class CoinsTest {
 	@Test
 	public void shouldCount2For1_1_0_1_0_0() {
 		coins.addAll(Arrays.asList(1,1,0,1,0,0));
-		assertEquals(2, Coins.countAdjecentPairs(coins));
+		assertEquals(2, Coins.countAdjacentPairs(coins));
 	}
 
 	@Test

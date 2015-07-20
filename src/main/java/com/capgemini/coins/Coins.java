@@ -37,7 +37,7 @@ public class Coins {
 
 		for (int i = 0; i < coins.size(); i++) {
 			reverseCoin(coins, i);
-			count = countAdjecentPairs(coins);
+			count = countAdjacentPairs(coins);
 			if (i == 0) {
 				firstCount = count;
 			}
@@ -62,7 +62,7 @@ public class Coins {
 			coins.set(i, 0);
 	}
 
-	public static int countAdjecentPairs(List<Integer> coins) {
+	public static int countAdjacentPairs(List<Integer> coins) {
 		int count = 0;
 		for (int i = 1; i < coins.size(); i++) {
 			if (coins.get(i) == coins.get(i - 1))
