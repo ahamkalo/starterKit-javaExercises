@@ -1,0 +1,9 @@
+package com.capgemini.nodes;
+
+public class DescriptionException extends Exception{
+	private static final long serialVersionUID = 1L;
+
+	public String getMessage(){
+		return "DescriptionException";
+	}
+}
