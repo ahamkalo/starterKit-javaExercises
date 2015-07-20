@@ -88,7 +88,25 @@ public class CellTest {
 		assertEquals(new Cell(1,1,false),new Cell(1,1,false));
 	}
 	@Test
-	public void shouldReturnThatCellsAreNotEqual() {
+	public void shouldReturnThatCellsAreNotEqualForNotEqualsX() {
 		assertNotEquals(new Cell(1,1,false),new Cell(2,1,false));
+	}
+	@Test
+	public void shouldReturnThatCellsAreNotEqualForNotEqualsY() {
+		assertNotEquals(new Cell(1,1,false),new Cell(1,2,false));
+	}
+	@Test
+	public void shouldProperlyCreateObject() {
+		Cell cell = new Cell(1,3,false);
+		assertEquals(1, cell.getX());
+		assertEquals(3, cell.getY());
+	}
+	@Test
+	public void shouldProperlyAddNeighbours() {
+		Cell cell = new Cell(1,3,false);
+		assertEquals(0, cell.getNeighbours().size());
+		cell.addNeighbours(new Cell(2,4,false));
+		assertEquals(1, cell.getNeighbours().size());
+		assertEquals(4, cell.getNeighbours().get(0).getY());
 	}
 }
