@@ -58,25 +58,6 @@ public class Board {
 		}
 	}
 
-	public void display(Figure figure) {
-		int rowLength = figure.getFigure()[0].length;
-		int i = 0;
-		System.out.println();
-		for (Cell cell : cells) {
-			if (cell.isAlive()) {
-				System.out.print("# ");
-			} else {
-				System.out.print(". ");
-			}
-
-			i++;
-			if (i == rowLength) {
-				System.out.println();
-				i = 0;
-			}
-		}
-	}
-
 	public List<Cell> getCells() {
 		return cells;
 	}
