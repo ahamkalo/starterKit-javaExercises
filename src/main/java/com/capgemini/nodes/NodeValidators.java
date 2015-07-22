@@ -110,8 +110,6 @@ public class NodeValidators {
 		return true;
 	}
 	
-	//poprawic
-	
 	private List<Node> getNodesWithNoSubsequentsFrom(List<Node> nodes){
 		List<Node> nodesWithNoSubsequents = new ArrayList<Node>();
 		boolean isPredecessor = false;
