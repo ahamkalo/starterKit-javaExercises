@@ -19,31 +19,7 @@ public class Hand implements Comparable<Hand> {
 		putToTreeMap();
 		setRank();
 	}
-
-	public int compareTo(Hand otherHand) {
-		int comparisonResult = rank.compareTo(otherHand.rank);
-		if (isNotEqualZero(comparisonResult)) {
-			return comparisonResult;
-		} else {
-			comparisonResult = compareHandsWithEqualRanks(otherHand);
-		}
-		return comparisonResult;
-	}
-
-	private int compareHandsWithEqualRanks(Hand otherHand) {
-		int comparisonResult;
-		int max = maximumValueInMap(map);
-		switch (max) {
-		case 4:
-		case 3:
-			comparisonResult = getKeyWithValue(max).compareTo(otherHand.getKeyWithValue(max));
-			break;
-		default:
-			comparisonResult = compare(otherHand);
-		}
-		return comparisonResult;
-	}
-
+	
 	private void addCardsToHand(String cardsString) {
 		for (String cardString : cardsString.split(" ")) {
 			cardsInHand.add(new Card(Values.findByKey(cardString.substring(0, 1)),
@@ -100,8 +76,32 @@ public class Hand implements Comparable<Hand> {
 		}
 	}
 
+	public int compareTo(Hand otherHand) {
+		int comparisonResult = rank.compareTo(otherHand.rank);
+		if (isNotEqualZero(comparisonResult)) {
+			return comparisonResult;
+		} else {
+			comparisonResult = compareHandsWithEqualRanks(otherHand);
+		}
+		return comparisonResult;
+	}
+	
 	private boolean isNotEqualZero(int result) {
 		return result != 0;
+	}
+
+	private int compareHandsWithEqualRanks(Hand otherHand) {
+		int comparisonResult;
+		int max = maximumValueInMap(map);
+		switch (max) {
+		case 4:
+		case 3:
+			comparisonResult = getKeyWithValue(max).compareTo(otherHand.getKeyWithValue(max));
+			break;
+		default:
+			comparisonResult = compare(otherHand);
+		}
+		return comparisonResult;
 	}
 	
 	private TreeMap<Values, Integer> deepMapCopy(TreeMap<Values, Integer> original) {
